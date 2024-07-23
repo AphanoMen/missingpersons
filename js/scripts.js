@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch("data.json")
         .then((response) => response.json())
         .then((data) => {
+			  data.sort((a, b) => a.name.localeCompare(b.name));
             const container = document.querySelector("#persons");
             data.forEach((card) => {
                 container.innerHTML += createCard(card);
